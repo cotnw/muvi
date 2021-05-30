@@ -1,0 +1,22 @@
+{
+    "name": "muvi",
+    "version": "1.0",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_icon": "./icon.png",
+        "default_title": "muvi"
+    },
+    "icons": {
+        "300": "./icon.png"
+    },
+    "content_scripts": [{
+        "matches": ["https://www.google.com/search*"],
+        "js": ["support/google/content.js"],
+        "run_at": "document_end"
+    }],
+    "web_accessible_resources": ["support/google/script.js"],
+    "permissions": [
+        "*://www.google.com/*",
+        "tabs"
+    ]
+}
