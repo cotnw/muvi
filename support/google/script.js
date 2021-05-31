@@ -5,6 +5,15 @@ let inflatedDownloads = ''
 
 const createElement = (options) => {
     options.forEach(e => {
+        let inflatedDownloadOptions = ''
+        e.downloadOptions.forEach(d => {
+            if(e.downloadOptions.indexOf(d) > 0) {
+                inflatedDownloadOptions += `<a href="${d.magnet}" target="_blank"><div class="xlBGCb ellip" style="border: 1px solid #ebebeb; border-radius: 16px; height: 20px; width: 60px; text-align: center; color: rgba(0,0,0,.87);padding-top: 5px; margin-left: 10px;">${d.quality}</div></a>`
+            } else {
+                inflatedDownloadOptions += `<a href="${d.magnet}" target="_blank"><div class="xlBGCb ellip" style="border: 1px solid #ebebeb; border-radius: 16px; height: 20px; width: 60px; text-align: center; color: rgba(0,0,0,.87);padding-top: 5px;">${d.quality}</div></a>`
+            }
+        })
+        
         if(options.indexOf(e) == 0) {
             inflatedDownloads += `
                 <div class="PZPZlf MRfBrb kno-vrt-t" data-rentity="" style="width:500px;">
@@ -14,8 +23,7 @@ const createElement = (options) => {
                             <div class="xlBGCb ellip">${e.source}</div>
                         </div>
                         <div style="display: flex; flex-flow: row wrap; align-items: center; margin-top: 10px; margin-bottom: 10px; margin-left: 20px">
-                            <a href="${e.downloadOptions[0].magnet}" target="_blank"><div class="xlBGCb ellip" style="border: 1px solid #ebebeb; border-radius: 16px; height: 20px; width: 60px; text-align: center; color: rgba(0,0,0,.87);padding-top: 5px;">${e.downloadOptions[0].quality}</div></a>
-                            <a href="${e.downloadOptions[1].magnet}" target="_blank"><div class="xlBGCb ellip" style="border: 1px solid #ebebeb; border-radius: 16px; height: 20px; width: 60px; text-align: center; color: rgba(0,0,0,.87);padding-top: 5px; margin-left: 10px;">${e.downloadOptions[1].quality}</div></a>
+                            ${inflatedDownloadOptions}
                         </div>
                     </div>
                 </div><br>
@@ -29,8 +37,7 @@ const createElement = (options) => {
                             <div class="xlBGCb ellip">${e.source}</div>
                         </div>
                         <div style="display: flex; flex-flow: row wrap; align-items: center; margin-top: 10px; margin-bottom: 10px; margin-left: 20px">
-                            <a href="${e.downloadOptions[0].magnet}" target="_blank"><div class="xlBGCb ellip" style="border: 1px solid #ebebeb; border-radius: 16px; height: 20px; width: 60px; text-align: center; color: rgba(0,0,0,.87);padding-top: 5px;">${e.downloadOptions[0].quality}</div></a>
-                            <a href="${e.downloadOptions[1].magnet}" target="_blank"><div class="xlBGCb ellip" style="border: 1px solid #ebebeb; border-radius: 16px; height: 20px; width: 60px; text-align: center; color: rgba(0,0,0,.87);padding-top: 5px; margin-left: 10px;">${e.downloadOptions[1].quality}</div></a>
+                            ${inflatedDownloadOptions}
                         </div>
                     </div>
                 </div><br>
