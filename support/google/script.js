@@ -1,4 +1,4 @@
-const api = "https://muvi.cotnw.tk"
+const api = "https://muvi-api.anshulsaha.repl.co"
 const sideCard = document.getElementsByClassName('Vrkhme')[0]
 
 let inflatedDownloads = ''
